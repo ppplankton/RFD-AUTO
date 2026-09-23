@@ -82,3 +82,27 @@ export async function clickIfVisible(
   await clickWhenReady(page, locator);
   return true;
 }
+
+export async function fillWhenReady(
+  page: Page,
+  locator: Locator,
+  value: string
+) {
+  await expect(locator).toBeVisible({
+    timeout: uiTimeout,
+  });
+
+  await expect(locator).toBeEnabled({
+    timeout: uiTimeout,
+  });
+
+  await locator.scrollIntoViewIfNeeded({
+    timeout: uiTimeout,
+  });
+
+  await locator.fill(value, {
+    timeout: uiTimeout,
+  });
+
+  await waitForUi(page);
+}
