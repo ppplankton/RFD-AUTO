@@ -1,0 +1,21 @@
+
+# Playwright
+node_modules/
+test-results/
+playwright-report/
+testcase/test-results/
+testcase/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+testcase/tests/**/*.rec.ts
+
+# Local machine files
+.DS_Store
+
+# Login sessions / tokens
+testcase/auth/*.json
+!testcase/auth/.gitkeep
+
+# Separate local API collection repo
+rfd-bruno/

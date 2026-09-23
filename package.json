@@ -1,0 +1,40 @@
+{
+  "name": "rfd-automate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install:browsers": "playwright install",
+    "auth:citizen": "playwright codegen https://dev-dpermit.forest.go.th/ --save-storage=./testcase/auth/citizen.json",
+    "auth:reg5-saraburi": "playwright codegen \"https://dev-dpermit.forest.go.th/login?realm=officer\" --save-storage=./testcase/auth/reg5-saraburi.json",
+    "auth:hq-division-head-central": "playwright codegen \"https://dev-dpermit.forest.go.th/login?realm=officer\" --save-storage=./testcase/auth/hq-division-head-central.json",
+    "auth:hq-division-staff-central1": "playwright codegen \"https://dev-dpermit.forest.go.th/login?realm=officer\" --save-storage=./testcase/auth/hq-division-staff-central1.json",
+    "auth:hq-secretary": "playwright codegen \"https://dev-dpermit.forest.go.th/login?realm=officer\" --save-storage=./testcase/auth/hq-secretary.json",
+    "record:uat-rfd-03:step03": "playwright codegen https://dev-dpermit.forest.go.th/ --load-storage=./testcase/auth/reg5-saraburi.json --save-storage=./testcase/auth/reg5-saraburi.json -o ./testcase/tests/uat-rfd-03/03-regional-officer-schedule-inspection.rec.ts",
+    "test:uat-rfd-03": "playwright test testcase/tests/uat-rfd-03 --headed",
+    "test:uat-rfd-03:step01": "playwright test testcase/tests/uat-rfd-03/01-citizen-submit-request.spec.ts --headed",
+    "test:uat-rfd-03:step02": "playwright test testcase/tests/uat-rfd-03/02-regional-officer-review-documents.spec.ts --headed",
+    "test:uat-rfd-03:step03": "playwright test testcase/tests/uat-rfd-03/03-regional-officer-schedule-inspection.spec.ts --headed",
+    "test:uat-rfd-03:step04": "playwright test testcase/tests/uat-rfd-03/04-regional-officer-record-inspection-result.spec.ts --headed",
+    "test:uat-rfd-03:step05": "playwright test testcase/tests/uat-rfd-03/05-regional-officer-upload-opinion-documents.spec.ts --headed",
+    "test:uat-rfd-03:step06": "playwright test testcase/tests/uat-rfd-03/06-division-head-assign-work.spec.ts --headed",
+    "test:uat-rfd-03:step07": "playwright test testcase/tests/uat-rfd-03/07-division-staff-review-documents.spec.ts --headed",
+    "test:uat-rfd-03:step08": "playwright test testcase/tests/uat-rfd-03/08-division-staff-upload-summary-document.spec.ts --headed",
+    "test:uat-rfd-03:step09": "playwright test testcase/tests/uat-rfd-03/09-secretary-review-for-subcommittee.spec.ts --headed",
+    "test:uat-rfd-03:step10": "playwright test testcase/tests/uat-rfd-03/10-secretary-create-subcommittee-meeting.spec.ts --headed",
+    "test:uat-rfd-03:step11": "playwright test testcase/tests/uat-rfd-03/11-secretary-record-subcommittee-result.spec.ts --headed",
+    "test:uat-rfd-03:step12": "playwright test testcase/tests/uat-rfd-03/12-secretary-create-committee-meeting.spec.ts --headed",
+    "test:uat-rfd-03:step13": "playwright test testcase/tests/uat-rfd-03/13-secretary-record-committee-result.spec.ts --headed",
+    "test:uat-rfd-03:step14": "playwright test testcase/tests/uat-rfd-03/14-division-staff-send-for-license.spec.ts --headed",
+    "test:uat-rfd-03:step15": "playwright test testcase/tests/uat-rfd-03/15-regional-officer-issue-license.spec.ts --headed",
+    "test:uat-rfd-03:step16": "playwright test testcase/tests/uat-rfd-03/16-regional-officer-add-budget-document.spec.ts --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.0"
+  }
+}
