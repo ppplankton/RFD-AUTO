@@ -1,11 +1,88 @@
 # RFD Automation Runbook
 
+## Git Workflow สำหรับคนเริ่มทำงาน
+
+### 1) Fork repo
+
+เข้า repo หลักบน GitHub:
+
+```text
+git@github.com:ppplankton/RFD-AUTO.git
+```
+
+กด `Fork` ไปไว้ใน GitHub account ของตัวเองก่อน เพื่อให้แต่ละคนมีพื้นที่ทำงานแยกกัน
+
+### 2) Clone fork ลงเครื่อง
+
+เปิด `cmd`, `Terminal`, หรือ terminal ใน VS Code แล้ว clone repo ของตัวเอง:
+
+```bash
+git clone git@github.com:<github-username>/RFD-AUTO.git
+cd RFD-AUTO
+```
+
+ถ้าใช้ HTTPS ให้ใช้ URL จากปุ่ม `Code` บน GitHub ของ fork ตัวเองแทน
+
+### 3) ผูก repo หลักไว้สำหรับ Sync
+
+รันครั้งเดียวหลัง clone:
+
+```bash
+git remote add upstream git@github.com:ppplankton/RFD-AUTO.git
+git fetch upstream
+```
+
+เช็กว่า remote มี `origin` เป็น fork ตัวเอง และ `upstream` เป็น repo หลัก:
+
+```bash
+git remote -v
+```
+
+### 4) สร้าง branch แยกตามชื่อ
+
+ห้ามทำงานบน `main` ตรง ๆ ให้สร้าง branch ของตัวเองก่อน เช่น:
+
+```bash
+git switch -c work/<your-name>
+```
+
+ตัวอย่าง:
+
+```bash
+git switch -c work/nong-a
+```
+
+### 5) Sync งานล่าสุดก่อนเริ่มทำ
+
+ทุกครั้งก่อนเริ่มบันทึก script ให้ดึงงานล่าสุดจาก repo หลัก:
+
+```bash
+git switch work/<your-name>
+git fetch upstream
+git merge upstream/main
+```
+
+ถ้ามี conflict ให้หยุดแล้วถามคนดูแลก่อน อย่าฝืนแก้มั่ว
+
+### 6) Commit และ Push งานตัวเอง
+
+หลังแก้ไฟล์เสร็จ:
+
+```bash
+git status
+git add .
+git commit -m "record: add uat rfd step 03"
+git push origin work/<your-name>
+```
+
+จากนั้นเปิด Pull Request บน GitHub จาก branch ของตัวเองกลับเข้า repo หลัก
+
 ## Setup สำหรับเครื่องใหม่
 
 หลัง clone repo ให้เข้าโฟลเดอร์โปรเจกต์:
 
 ```bash
-cd rfd-automate
+cd RFD-AUTO
 ```
 
 ติดตั้ง dependency:

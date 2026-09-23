@@ -4,6 +4,37 @@ Playwright automation สำหรับช่วยบันทึกและ�
 
 ## Quick Start
 
+### 1) ดึงโปรเจกต์จาก GitHub
+
+ให้เข้า repo บน GitHub แล้วกด `Fork` ไปไว้ใน account ตัวเองก่อน จากนั้น clone fork ของตัวเองลงเครื่อง:
+
+```bash
+git clone git@github.com:<github-username>/RFD-AUTO.git
+cd RFD-AUTO
+```
+
+ผูก repo ต้นทางไว้สำหรับ sync งานใหม่จากทีม:
+
+```bash
+git remote add upstream git@github.com:ppplankton/RFD-AUTO.git
+git fetch upstream
+```
+
+สร้าง branch แยกตามชื่อตัวเองก่อนเริ่มทำงาน:
+
+```bash
+git switch -c work/<your-name>
+```
+
+ก่อนเริ่มงานทุกวันให้ sync จาก repo หลัก:
+
+```bash
+git fetch upstream
+git merge upstream/main
+```
+
+### 2) ติดตั้งโปรเจกต์
+
 ติดตั้ง dependency หลัง clone repo:
 
 ```bash
@@ -16,6 +47,19 @@ npm run install:browsers
 ```bash
 npm run
 ```
+
+### 3) ส่งงานกลับขึ้น GitHub
+
+หลังแก้ script เสร็จ ให้ commit แล้ว push branch ของตัวเอง:
+
+```bash
+git status
+git add .
+git commit -m "record: add uat rfd step 03"
+git push origin work/<your-name>
+```
+
+จากนั้นเปิด Pull Request จาก branch ของตัวเองกลับเข้า repo หลัก
 
 ## เก็บ Login Session
 
