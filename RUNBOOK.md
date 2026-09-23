@@ -431,19 +431,40 @@ npm run test:uat-rfd-03:step16
 *.rec.ts
 ```
 
+ก่อน record ต้องมี auth ของ role นั้นก่อน ถ้ายังไม่มีให้ save auth ตามหัวข้อ `Auth Session`
+
+คำสั่ง record ของ Step 03–16:
+
+| Step | ผู้ใช้งาน | ต้องมี auth | คำสั่ง record |
+| --- | --- | --- | --- |
+| 03 | เจ้าหน้าที่ สจป. | `reg5-saraburi.json` | `npm run record:uat-rfd-03:step03` |
+| 04 | เจ้าหน้าที่ สจป. | `reg5-saraburi.json` | `npm run record:uat-rfd-03:step04` |
+| 05 | เจ้าหน้าที่ สจป. | `reg5-saraburi.json` | `npm run record:uat-rfd-03:step05` |
+| 06 | หัวหน้าฝ่าย | `hq-division-head-central.json` | `npm run record:uat-rfd-03:step06` |
+| 07 | เจ้าหน้าที่ฝ่าย | `hq-division-staff-central1.json` | `npm run record:uat-rfd-03:step07` |
+| 08 | เจ้าหน้าที่ฝ่าย | `hq-division-staff-central1.json` | `npm run record:uat-rfd-03:step08` |
+| 09 | เลขานุการ | `hq-secretary.json` | `npm run record:uat-rfd-03:step09` |
+| 10 | เลขานุการ | `hq-secretary.json` | `npm run record:uat-rfd-03:step10` |
+| 11 | เลขานุการ | `hq-secretary.json` | `npm run record:uat-rfd-03:step11` |
+| 12 | เลขานุการ | `hq-secretary.json` | `npm run record:uat-rfd-03:step12` |
+| 13 | เลขานุการ | `hq-secretary.json` | `npm run record:uat-rfd-03:step13` |
+| 14 | เจ้าหน้าที่ฝ่าย | `hq-division-staff-central1.json` | `npm run record:uat-rfd-03:step14` |
+| 15 | เจ้าหน้าที่ สจป. | `reg5-saraburi.json` | `npm run record:uat-rfd-03:step15` |
+| 16 | เจ้าหน้าที่ สจป. | `reg5-saraburi.json` | `npm run record:uat-rfd-03:step16` |
+
 ตัวอย่างเริ่มเก็บ Step 03 ด้วย login `reg5_saraburi`:
 
 ```bash
 npm run record:uat-rfd-03:step03
 ```
 
-ไฟล์ที่ถูกสร้าง:
+ไฟล์ที่ถูกสร้างจะเป็น `.rec.ts` ตาม step ที่รัน เช่น:
 
 ```text
 testcase/tests/uat-rfd-03/03-regional-officer-schedule-inspection.rec.ts
 ```
 
-ไฟล์จริงที่ต้อง merge เข้า:
+ไฟล์จริงที่ต้อง merge เข้าเป็น `.spec.ts` ชื่อเดียวกัน เช่น:
 
 ```text
 testcase/tests/uat-rfd-03/03-regional-officer-schedule-inspection.spec.ts
